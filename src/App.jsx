@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { addUser } from "./Store/userSlice";
 import { useEffect } from "react";
 import { BASE_URL } from "./utils/constant";
+import Footer from "./Components/Footer";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -29,6 +30,7 @@ function App() {
     <>
       <Head />
       <Outlet />
+      <Footer/>
     </>
   );
 }

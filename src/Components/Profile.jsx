@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const Profile = () => {
   const [erromsg, setErrormsg] = useState("");
   const userData = useSelector((store) => store.user);
+  console.log("userData: ", userData);
   const EditProfile = async () => {
     try {
       const res = await axios.patch(BASE_URL + "/profile/edit");
@@ -19,17 +20,28 @@ const Profile = () => {
     <div className="flex gap-10 p-10">
       <div className="card-body w-6/11 rounded-xl  bg-gray-200">
         <h2 className="card-title text-2xl">Edit Your Profile!</h2>
-        {/* <legend className="fieldset-legend mt-5 p-0">Enter your Email*</legend> */}
-        <input type="text" className="input" placeholder="Your Mail id..." />
+        <div className="flex gap-3">
+          <input type="text" className="input" placeholder="Your Firstname" />
+          <input type="text" className="input" placeholder="Your Lastname" />
+        </div>
 
-        {/* <legend className="fieldset-legend mt-5 p-0">
-          Enter your Password*
-        </legend> */}
-        <input
-          type="password"
-          className="input"
-          placeholder="Your Password..."
-        />
+        <div className="flex gap-3 items-center">
+          <textarea
+            className="textarea"
+            placeholder="Your About Section"
+          ></textarea>
+          <select defaultValue="Your Gender" className="select">
+            <option disabled={true}>Your Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Others</option>
+          </select>
+        </div>
+
+        <div className="flex gap-3">
+          <input type="text" className="input" placeholder="Skills" />
+          <input type="text" className="input" placeholder="Photo Url" />
+        </div>
         <div className="card-actions flex items-center flex-col">
           <div>
             <p className="text-red-600 m-0 p-0">{erromsg}</p>
