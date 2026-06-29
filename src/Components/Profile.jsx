@@ -51,7 +51,7 @@ const Profile = () => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">{`${userData?.firstname} ${userData?.lastname}`}</h2>
-            <p>{userData.about}</p>
+            <p>{userData?.about}</p>
             <div className="card-actions justify-center gap-5 flex">
               <button className="btn btn-secondary">Ignored</button>
               <button className="btn btn-primary">Interested</button>

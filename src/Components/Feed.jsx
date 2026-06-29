@@ -15,17 +15,17 @@ const Feed = () => {
   const feedCards = useSelector(store=>store?.feed)
   console.log('feedCards: ', feedCards);
 
-  const getProfile = async()=>{
-    try{
-      const response =await axios.get(BASE_URL+"/profile/view",{withCredentials:true})
-      dispatch(addUser(response?.data))
-    }catch(err){
-      if(err.status == '401') {
-        navigate("/")
-      }
+  // const getProfile = async()=>{
+  //   try{
+  //     const response =await axios.get(BASE_URL+"/profile/view",{withCredentials:true})
+  //     dispatch(addUser(response?.data))
+  //   }catch(err){
+  //     if(err.status == '401') {
+  //       navigate("/")
+  //     }
       
-    }
-  }
+  //   }
+  // }
 
   const getFeedData = async()=>{
     const res = await axios.get(BASE_URL + "/user/feed" , {withCredentials:true})
@@ -33,11 +33,10 @@ const Feed = () => {
   }
 
   useEffect(()=>{
-    if(!user){
-      getProfile()
+      // getProfile()
       getFeedData()
-    }
-  },[user])
+    
+  },[])
 
   return (
     <div className='flex gap-3 flex-wrap justify-center items-center py-5'>
