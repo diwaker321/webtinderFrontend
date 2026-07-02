@@ -6,9 +6,13 @@ const requestSlice = createSlice({
     reducers:{
         addReqData:(state , action)=>{
             return action.payload;
+        },
+        filterReqData:(state , action)=>{
+            return action.payload
         }
+
     }
 })
 
-export const {addReqData} = requestSlice.actions
+export const {addReqData , filterReqData} = requestSlice.actions
 export default requestSlice.reducer
