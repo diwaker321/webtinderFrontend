@@ -6,11 +6,13 @@ const feedSlice = createSlice({
     reducers:{
         addFeed:(state,action)=>{
             return action.payload;
-
+        },
+        filterFeed:(state,action)=>{
+            return action.payload;
         }
     }
 
 })
 
-export const { addFeed} = feedSlice.actions
+export const { addFeed , filterFeed} = feedSlice.actions
 export default feedSlice.reducer;
