@@ -2,7 +2,7 @@ import React from "react";
 import feedusericon from "../assets/feedusericon.png"
 
 const FeedCard = ({ data }) => {
-  console.log("data: ", data);
+  // console.log("data: ", data);
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm">

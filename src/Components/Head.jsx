@@ -54,9 +54,13 @@ const Head = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
+              <Link to="/connections">
               <li>
-                <a>Settings</a>
+              
+                Connections
+              
               </li>
+              </Link>
               <li onClick={handleLogout}>
                 <a>Logout</a>
               </li>

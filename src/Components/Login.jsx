@@ -47,7 +47,7 @@ const Login = () => {
           </legend>
           <input
             ref={email}
-            value={"teju@gmail.com"}
+            value={"diwaker@gmail.com"}
             type="text"
             className="input"
             placeholder="Your Mail id..."
