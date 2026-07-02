@@ -9,7 +9,6 @@ const Connections = () => {
     const dispatch = useDispatch()
     const connectionData = useSelector(store=>store.connectionData)
     const loggedinUser = useSelector(store=>store.user)
-    console.log('loggedinUser: ', loggedinUser);
     const getConnections = async()=>{
         try{
             const res =await axios.get(BASE_URL+"/user/connection",{withCredentials:true})
@@ -25,18 +24,21 @@ const Connections = () => {
     useEffect(()=>{
         getConnections()
     },[])
-    console.log(connectionData);
 
     const Conncetion = connectionData?.map((res)=>{
         return loggedinUser._id===res.fromUserID._id ? res.toUserID : res.fromUserID
     })
-    console.log('Conncetion: ', Conncetion);
     
     
   return (
+    <>
+    <h1 className="font-semibold text-center pt-5 text-4xl">
+        Connection Section
+      </h1>
     <div className="flex flex-wrap gap-4 p-10">
       {Conncetion?.map(res=> <FeedCard data={res} />)}
     </div>
+    </>
   );
 };
 

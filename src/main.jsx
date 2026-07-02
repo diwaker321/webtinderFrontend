@@ -9,6 +9,7 @@ import Feed from "./Components/Feed.jsx";
 import {Provider} from "react-redux"
 import appStore from "./Store/appStore";
 import Connections from "./Components/Connections.jsx";
+import Request from "./Components/Request.jsx";
 
 
 const appRouter = createBrowserRouter([
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/connections",
         element:<Connections/>
+      },
+      {
+        path:"/request",
+        element:<Request/>
       }
     ],
   },

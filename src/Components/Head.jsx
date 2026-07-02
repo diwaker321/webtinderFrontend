@@ -25,7 +25,7 @@ const Head = () => {
     <>
       <div className="navbar bg-primary-content px-5 shadow-sm">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Dev Tinder</a>
+          <Link to="/feed" className="btn btn-ghost text-xl">Dev Tinder</Link>
         </div>
         {Username && (
           <>
@@ -54,13 +54,18 @@ const Head = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <Link to="/connections">
               <li>
+              <Link to="/connections">
               
                 Connections
-              
-              </li>
               </Link>
+              </li>
+
+              <li>
+              <Link to="/request">
+                Requests
+              </Link>
+              </li>
               <li onClick={handleLogout}>
                 <a>Logout</a>
               </li>
