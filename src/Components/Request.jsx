@@ -4,6 +4,8 @@ import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addReqData } from "../Store/requestSlice";
 import FeedCard from "./FeedCard";
+import feedusericon from "../assets/feedusericon.png"
+
 
 const Request = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,16 @@ const Request = () => {
       console.log("err: ", err.message);
     }
   };
+
+    const handleConnectionRequest=async(status , id)=>{
+    try{
+      const res = await axios.post(BASE_URL+ "/request/review/" +status + "/" + id , {} , {withCredentials:true} )
+    }catch(err){
+      console.log('err: ', err.message);
+
+    }
+
+  }
   useEffect(() => {
     getData();
   }, []);
@@ -28,11 +40,33 @@ const Request = () => {
       <h1 className="font-semibold text-center pt-5 text-4xl">
         Request Section
       </h1>
-      <div className="requestSection flex flex-wrap justify-around p-10">
-        {requestData?.map((res) => (
-          <FeedCard data={res?.fromUserID} />
-        ))}
-      </div>
+      {requestData?.map((res)=>{
+        const {about,firstname,lastname,photoURL} = res?.fromUserID
+        return(
+          <>
+            <div className="card bg-base-100 w-96 shadow-sm">
+                    <figure className="bg-amber-100">
+                      <img
+                        src={photoURL || feedusericon}
+                        className="w-70 "
+                        alt="Shoes"
+                      />
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title">{`${firstname} ${lastname}`}</h2>
+                      <p>
+                      {about}
+                      </p>
+                      <div className="card-actions justify-center gap-5 flex">
+                        <button className="btn btn-secondary" onClick={()=>handleConnectionRequest('rejected' , res?._id)}>Reject</button>
+                        <button className="btn btn-primary" onClick={()=>handleConnectionRequest('accepted' , res?._id)}>Accept</button>
+            
+                      </div>
+                    </div>
+                  </div>
+          </>
+        )
+      })}
     </>
   );
 };

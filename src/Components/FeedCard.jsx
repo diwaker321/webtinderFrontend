@@ -1,8 +1,19 @@
 import React from "react";
 import feedusericon from "../assets/feedusericon.png"
+import axios from "axios"
+import { BASE_URL } from "../utils/constant";
 
 const FeedCard = ({ data }) => {
-  console.log('data: ', data);
+
+  const handleConnectionRequest=async(status)=>{
+    try{
+      const res = await axios.post(BASE_URL + "/connectionRequest/send/" + status +"/" + data?._id,{},{withCredentials:true})
+    }catch(err){
+      console.log('err: ', err.message);
+
+    }
+
+  }
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -19,8 +30,8 @@ const FeedCard = ({ data }) => {
           {data?.about}
           </p>
           <div className="card-actions justify-center gap-5 flex">
-            <button className="btn btn-secondary">Ignored</button>
-            <button className="btn btn-primary">Interested</button>
+            <button className="btn btn-secondary" onClick={()=>handleConnectionRequest('ignored')}>Ignored</button>
+            <button className="btn btn-primary" onClick={()=>handleConnectionRequest('interested')}>Interested</button>
 
           </div>
         </div>
