@@ -24,15 +24,15 @@ const FeedCard = ({ data }) => {
   }
   return (
     <>
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure className="bg-amber-100">
-          <img
-            src={data?.photoURL || feedusericon}
-            className="w-70 "
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
+      <div className="card bg-base-100 w-80 overflow-hidden shadow-sm">
+          <figure className="h-70 w-80 overflow-hidden rounded-md">
+            <img
+              src={data?.photoURL || feedusericon}
+              className="w-full h-full object-cover"
+              alt="UserImage"
+            />
+          </figure>
+        <div className="card-body bg-base-300">
           <h2 className="card-title">{`${data?.firstname} ${data?.lastname}`}</h2>
           <p>
           {data?.about}
@@ -44,7 +44,7 @@ const FeedCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+    </> 
   );
 };
 

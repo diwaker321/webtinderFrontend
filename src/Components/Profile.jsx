@@ -122,12 +122,11 @@ const Profile = () => {
       </div>
 
       <div className="card w-4/11">
-        <div className="card bg-base-100 w-96 shadow-sm">
-          <figure className="bg-amber-100">
+        <div className="card bg-base-100 w-90 shadow-sm">
+          <figure className="h-80 w-full overflow-hidden rounded-md">
             <img
-              // src={userData?.photoURL || feedusericon}
               src={photoURL || feedusericon}
-              className="w-70 "
+              className="w-full h-full object-cover"
               alt="UserImage"
             />
           </figure>

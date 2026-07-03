@@ -42,7 +42,13 @@ const Request = () => {
     getData();
   }, []);
 
-  if (requestData?.length == 0) return <h1>empty</h1>;
+  if (requestData?.length == 0) return (<>
+    <h1 className="font-semibold text-center p-5 text-4xl">
+      Connection Section
+    </h1>
+    {/* <h1>No Request Connection Found</h1> */}
+  </>
+  );
   return (
     <>
       <h1 className="font-semibold text-center pt-5 text-4xl">
