@@ -37,9 +37,42 @@ const Connections = () => {
       <h1 className="font-semibold text-center pt-5 text-4xl">
         Connection Section
       </h1>
-    <div className="flex flex-wrap gap-4 p-10">
-      {Conncetion?.map(res=> <FeedCard data={res} />)}
-    </div>
+      <div className="flex flex-wrap flex-col items-center gap-4 p-10">
+        {/* {Conncetion?.map(res=> <FeedCard data={res} />)} */}
+        <ul className="list bg-base-100 rounded-box shadow-md w-[40%]">
+          <li className="p-4 pb-2 text-md opacity-60 tracking-wide">
+            Your Connections
+          </li>
+
+          {Conncetion?.map((user) => (
+            <li key={user._id} className="list-row my-1 mx-2">
+              <div>
+                <img
+                  className="size-16 rounded-full object-cover"
+                  src={user.photoURL || feedusericon}
+                  alt="User"
+                />
+              </div>
+
+              <div>
+                <div className="font-semibold text-lg">
+                  {user.firstname} {user.lastname}
+                </div>
+
+                <div className="text-xs uppercase font-semibold opacity-60">
+                  Connected User
+                </div>
+              </div>
+
+              <p className="list-col-wrap text-sm">{user.about}</p>
+
+             <Link to={`/chat/${loggedinUser?._id}/${user?._id}`}> <button className="btn btn-square btn-ghost">💬</button></Link>
+
+              {/* <button className="btn btn-square btn-ghost">❌</button> */}
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
