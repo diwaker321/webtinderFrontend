@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../Store/userSlice";
 import axios from "axios";
 import { BASE_URL } from "../utils/constant";
+import feedusericon from "../assets/feedusericon.png"
 
 const Head = () => {
-    const Username = useSelector(store=>store?.user?.firstname)
+    const Username = useSelector(store=>store?.user)
+    console.log(Username);
+    
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogout =async ()=>{
@@ -31,7 +34,7 @@ const Head = () => {
           <>
         <div className="flex gap-2">
           <div className="dropdown dropdown-end flex items-center gap-4">
-            {Username && <p>Hello {Username}</p>}
+            {Username && <p>Hello {Username?.firstname}</p>}
             <div
               tabIndex={0}
               role="button"
@@ -40,7 +43,7 @@ const Head = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={Username?.photoURL ||feedusericon}
                 />
               </div>
             </div>

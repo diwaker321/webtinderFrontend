@@ -28,7 +28,7 @@ const Feed = () => {
   if(!feedCards)return <ShimmerUi/>
 
   return (
-    <div className='flex gap-3 flex-wrap justify-center items-center py-5'>
+    <div className='flex gap-10 flex-wrap justify-center items-center py-5'>
     {feedCards?.map(res=> <FeedCard data ={res}/>)}
     </div>
   )
