@@ -15,7 +15,6 @@ const Profile = () => {
   const [skills, setSkills] = useState("");
   const [erromsg, setErrormsg] = useState("");
   const userData = useSelector((store) => store.user);
-  console.log("userData: ", userData);
   const EditProfile = async () => {
     try {
       const res = await axios.patch(
@@ -31,7 +30,6 @@ const Profile = () => {
         },
         { withCredentials: true },
       );
-      console.log("res: ", res?.data);
     } catch (err) {
       console.log("err: ", err.message);
     }

@@ -10,6 +10,7 @@ import {Provider} from "react-redux"
 import appStore from "./Store/appStore";
 import Connections from "./Components/Connections.jsx";
 import Request from "./Components/Request.jsx";
+import ChatUi from "./Components/ChatUi.jsx";
 
 
 const appRouter = createBrowserRouter([
@@ -36,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/request",
         element:<Request/>
+      },
+      {
+        path:"/chat/:fromUserId/:toUserId",
+        element:<ChatUi/>
       }
     ],
   },

@@ -9,7 +9,6 @@ import feedusericon from "../assets/feedusericon.png";
 const Request = () => {
   const dispatch = useDispatch();
   const requestData = useSelector((store) => store.requestData);
-  console.log("requestData: ", requestData);
   const getData = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/pendingRequest", {
@@ -28,11 +27,9 @@ const Request = () => {
         {},
         { withCredentials: true },
       );
-      console.log("res: ", res);
       const toUserID = res?.data?.data?._id;
 
       const filterdata = requestData.filter((res) => res._id !== toUserID);
-      console.log("filterdata: ", filterdata);
       dispatch(filterReqData(filterdata));
     } catch (err) {
       console.log("err: ", err.message);

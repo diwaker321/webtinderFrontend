@@ -24,7 +24,6 @@ const Login = () => {
         },
         { withCredentials: true },
       );
-      console.log(response.data);
 
       dispatch(addUser(response?.data));
       navigate("/feed");
